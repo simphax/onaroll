@@ -4,6 +4,7 @@
       <span>Vue.js PWA</span>
     </header>
     <main>
+      <progress-bar/>
       <img src="./assets/logo.png" alt="Vue.js PWA">
       <hello></hello>
     </main>
@@ -12,11 +13,13 @@
 
 <script>
 import Hello from './components/Hello'
+import ProgressBar from './components/ProgressBar'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    Hello,
+    ProgressBar
   }
 }
 </script>
