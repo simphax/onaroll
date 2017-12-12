@@ -4,6 +4,7 @@
       <span>Vue.js PWA</span>
     </header>
     <main>
+      <progress-bar/>
       <ul>
         <todo-item description="Test" color="blue" v-on:select="itemWasSelected" :selected="todoItems[0].selected"></todo-item>
         <todo-item description="Test"></todo-item>
@@ -16,12 +17,14 @@
 <script>
 import Hello from './components/Hello'
 import TodoItem from './components/TodoItem'
+import ProgressBar from './components/ProgressBar'
 
 export default {
   name: 'app',
   components: {
     Hello,
-    TodoItem
+    TodoItem,
+    ProgressBar
   },
   data: function () {
     return {
