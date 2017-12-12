@@ -4,19 +4,39 @@
       <span>Vue.js PWA</span>
     </header>
     <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
-      <hello></hello>
+      <ul>
+        <todo-item description="Test" color="blue" v-on:select="itemWasSelected" :selected="todoItems[0].selected"></todo-item>
+        <todo-item description="Test"></todo-item>
+        <todo-item description="Test"></todo-item>
+      </ul>
     </main>
   </div>
 </template>
 
 <script>
 import Hello from './components/Hello'
+import TodoItem from './components/TodoItem'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    Hello,
+    TodoItem
+  },
+  data: function () {
+    return {
+      todoItems: [
+        {
+          description: 'sdfsdf',
+          selected: false
+        }
+      ]
+    }
+  },
+  methods: {
+    itemWasSelected: function () {
+      this.$data.todoItems[0].selected = !this.$data.todoItems[0].selected
+    }
   }
 }
 </script>
@@ -24,6 +44,7 @@ export default {
 <style>
 body {
   margin: 0;
+  background: black;
 }
 
 #app {
