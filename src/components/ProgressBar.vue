@@ -10,31 +10,10 @@
 <script>
 export default {
   name: 'progress-bar',
-  data () {
-    return {
-      todos: [
-        {
-          description: 'Try Vue',
-          time: 1.3,
-          color: '#54a35a'
-        },
-        {
-          description: 'Publish PWA',
-          time: 2.7,
-          color: '#9e66cc'
-        },
-        {
-          description: 'Code night',
-          time: 1.3,
-          color: '#c98a32'
-        }
-      ],
-      totalTime: 8
-    }
-  },
+  props: ['todos', 'totalTime'],
   methods: {
     percentage (todo) {
-      const percent = 100 * todo.time / this.$data.totalTime
+      const percent = 100 * todo.time / this.$props.totalTime
       return `${percent}%`
     }
   }

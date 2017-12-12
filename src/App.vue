@@ -1,14 +1,13 @@
 <template>
   <div id="app">
-    <header>
-      <span>Vue.js PWA</span>
-    </header>
     <main>
-      <progress-bar/>
+      <progress-bar :todos="todos" :totalTime="totalTime" :currentTime="currentTime" :currentDo="currentDo"/>
       <ul>
-        <todo-item description="Test" color="blue" v-on:select="itemWasSelected" :selected="todoItems[0].selected"></todo-item>
-        <todo-item description="Test"></todo-item>
-        <todo-item description="Test"></todo-item>
+        <transition name="fade">
+          <todo-item description="Test" color="blue" v-on:select="itemWasSelected" :selected="todos[0].selected"></todo-item>
+          <todo-item description="Test"></todo-item>
+          <todo-item description="Test"></todo-item>
+        </transition>
       </ul>
     </main>
   </div>
@@ -28,17 +27,34 @@ export default {
   },
   data: function () {
     return {
-      todoItems: [
+      todos: [
         {
-          description: 'sdfsdf',
+          description: 'Try Vue',
+          time: 1.3,
+          color: '#54a35a',
+          selected: false
+        },
+        {
+          description: 'Publish PWA',
+          time: 2.7,
+          color: '#9e66cc',
+          selected: false
+        },
+        {
+          description: 'Code night',
+          time: 1.3,
+          color: '#c98a32',
           selected: false
         }
-      ]
+      ],
+      totalTime: 8,
+      currentTime: 2,
+      currentDo: false
     }
   },
   methods: {
     itemWasSelected: function () {
-      this.$data.todoItems[0].selected = !this.$data.todoItems[0].selected
+      this.$data.todos[0].selected = !this.$data.todos[0].selected
     }
   }
 }
